@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "NONO",
+    "version": "1.0",
+    "description": "Say No-No to distraction. The retro-styled, privacy-first automatic time tracker.",
+    "permissions": [
+        "tabs",
+        "storage",
+        "alarms",
+        "idle"
+    ],
+    "host_permissions": [
+        "https://nono-ral1.onrender.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://nono-web.vercel.app/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/nono.png",
+            "48": "icons/nono.png",
+            "128": "icons/nono.png"
+        }
+    },
+    "icons": {
+        "16": "icons/nono.png",
+        "48": "icons/nono.png",
+        "128": "icons/nono.png"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "smart-time-tracker-monorepo",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "dev": "concurrently \"npm run dev:web\" \"npm run dev:server\"",
+        "dev:web": "npm run dev --workspace=@smart-time-tracker/web",
+        "dev:server": "npm run start --workspace=@smart-time-tracker/server",
+        "install:all": "npm install && npm install --workspaces"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}

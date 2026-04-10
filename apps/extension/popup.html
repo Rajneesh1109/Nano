@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NONO Tracker</title>
+
+    <style>
+        body {
+            width: 350px;
+            font-family: "Courier New", Courier, monospace;
+            padding: 16px;
+            background-color: #f3f4f6;
+            /* Gray-100 */
+            color: #000;
+        }
+
+        /* Retro Card */
+        .retro-card {
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px 0px #000;
+            padding: 12px;
+            margin-bottom: 16px;
+            background: #fff;
+        }
+
+        .retro-card.green {
+            background: #dcfce7;
+            /* Green-100 */
+        }
+
+        .retro-card.yellow {
+            background: #fef9c3;
+            /* Yellow-100 */
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 20px;
+            font-weight: 900;
+            margin: 0 0 16px 0;
+            display: inline-block;
+            background: #fff;
+            padding: 4px 8px;
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0px 0px #000;
+            transform: rotate(-1deg);
+        }
+
+        .label {
+            font-size: 10px;
+            font-weight: bold;
+            color: #4b5563;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .value {
+            font-weight: 900;
+            font-size: 14px;
+        }
+
+        /* Buttons */
+        button {
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0px 0px #000;
+            padding: 8px 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.1s;
+            margin-top: 8px;
+            font-family: inherit;
+        }
+
+        button:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+        }
+
+        /* Indigo-600 */
+        .btn-green {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-white {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-black {
+            background: #000;
+            color: #fff;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #000;
+            padding: 8px;
+            font-family: inherit;
+            font-weight: bold;
+            outline: none;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #22c55e;
+            color: #fff;
+            padding: 4px 8px;
+            font-weight: 900;
+            font-size: 14px;
+            border: 2px solid #000;
+            margin-bottom: 8px;
+        }
+
+        /* Mini Stats List */
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            border-bottom: 1px dashed #000;
+            padding: 4px 0;
+        }
+
+        .stat-bar {
+            height: 6px;
+            background: #a78bfa;
+            border: 1px solid #000;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+        <img src="icons/nono.png"
+            style="width: 48px; height: 48px; border: 2px solid #000; box-shadow: 2px 2px 0 #000;">
+        <div>
+            <h1>NONO</h1>
+            <div style="font-size: 10px; font-weight: bold; font-style: italic; color: #555;">
+                Say <span style="background: #000; color: #fff; padding: 0 2px;">NONO</span> to distraction.
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: SETUP (Default) -->
+    <div id="setup-view">
+        <div class="retro-card yellow">
+            <div class="label">Status</div>
+            <div style="font-weight: 900; margin-bottom: 8px;">NOT CONNECTED</div>
+            <div style="font-size: 11px; margin-bottom: 12px;">
+                Open the Dashboard to automatically link this extension to your account.
+            </div>
+            <div id="pairingStatus" style="font-size: 10px; font-weight: bold; margin-top: 6px; color: #666;">Waiting
+                for connection...</div>
+        </div>
+
+        <button id="dashboardBtn" class="btn-primary">Open Dashboard</button>
+    </div>
+
+    <!-- VIEW: CONNECTED (Hidden) -->
+    <div id="connected-view" style="display: none;">
+        <!-- Status Card -->
+        <div class="retro-card green">
+            <div class="status-badge">
+                <span>&#10003;</span> CONNECTED
+            </div>
+            <div style="font-size: 11px; font-weight: bold; color: #166534;">
+                Updates automatically
+            </div>
+        </div>
+
+        <!-- Mini Stats -->
+        <div class="retro-card">
+            <div class="label" style="border-bottom: 2px solid #000; padding-bottom: 4px; margin-bottom: 8px;">TODAY'S
+                FOCUS</div>
+
+            <div id="statsList">
+                <div style="padding: 10px; text-align: center; font-size: 11px; color: #666;">Loading activity...</div>
+            </div>
+
+            <div style="margin-top: 12px; font-size: 10px; color: #666; font-weight: bold;">
+                ID: <span id="connectedUserId" style="font-family: monospace;">...</span>
+            </div>
+        </div>
+
+        <button id="dashboardBtnConnected" class="btn-white">Open Full Dashboard</button>
+        <button id="clearAuthBtn" class="btn-black" style="margin-top: 12px;">Sign Out</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>

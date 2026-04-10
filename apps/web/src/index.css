@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-retro-bg: #F5F5F5;
+  --color-retro-primary: #FFB84C;
+  --color-retro-secondary: #F266AB;
+  --color-retro-accent: #A459D1;
+  --color-retro-text: #222222;
+  --color-retro-border: #000000;
+
+  --shadow-retro: 4px 4px 0px 0px #000000;
+  --shadow-retro-hover: 2px 2px 0px 0px #000000;
+  
+  --radius-retro: 4px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-retro-bg);
+    color: var(--color-retro-text);
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
+
+@layer components {
+  .btn-retro {
+    @apply px-6 py-2 bg-retro-primary border-2 border-retro-border shadow-retro font-bold uppercase transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-retro-hover hover:bg-white;
+  }
+  
+  .card-retro {
+    @apply p-6 bg-white border-2 border-retro-border shadow-retro;
+  }
+}
