@@ -22,6 +22,3 @@ yarn-error.log*
 
 # Extension Release (Keep the zip, ignore the build folder)
 release/nono-v1/
-
-# Ignore backend
-apps/server/
