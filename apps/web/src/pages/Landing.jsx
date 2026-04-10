@@ -420,7 +420,7 @@ export default function Landing({ session }) {
                                 </a>
                             </div>
                             <p className="mt-8 text-xs font-black uppercase text-gray-400">
-                                handmade by <span className="bg-black text-white px-1">RAJNEESH</span> in 2026.
+                                handmade by <span className="bg-black text-white px-1">RAJNEESH CHAUBEY</span> in 2026.
                             </p>
                         </div>
                     </div>
