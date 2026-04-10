@@ -3,7 +3,7 @@
  */
 
 const API_BASE = "https://nono-ral1.onrender.com";
-const DASHBOARD_URL = "https://nono-web.vercel.app/";
+const DASHBOARD_URL = "https://nano-web-vert.vercel.app/";
 
 const elTime = document.getElementById("time");
 

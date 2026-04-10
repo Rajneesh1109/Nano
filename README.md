@@ -16,7 +16,7 @@
 3.  Drag and drop the unzipped folder into the page.
 
 ### 3. Go
-1.  **[Open Dashboard](https://nono-web.vercel.app/)** and Sign In.
+1.  **[Open Dashboard](https://nano-web-vert.vercel.app/)** and Sign In.
 2.  Pin the NONO extension 🧩 to see your status.
 3.  That's it! Just browse the web, and your stats will appear automatically.
 
